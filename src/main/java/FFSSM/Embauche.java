@@ -18,6 +18,17 @@ public class Embauche {
         this.employeur = employeur;
     }
 
+    public void setDebut(LocalDate debut) {
+        this.debut = debut;
+    }
+
+    public Embauche(LocalDate debut, LocalDate fin, Moniteur employe, Club employeur) {
+        this.debut = debut;
+        this.fin = fin;
+        this.employe = employe;
+        this.employeur = employeur;
+    }
+
     /**
      * Termine cette embauche
      * @param dateFin la date à laquelle cette embauche est terminée
