@@ -4,18 +4,21 @@
 package FFSSM;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class Moniteur extends Personne {
 
     public int numeroDiplome;
+    private ArrayList<Embauche> embauche= new ArrayList<>();
 
     public Moniteur(String numeroINSEE, String nom, String prenom, String adresse, String telephone, LocalDate naissance, int numeroDiplome) {
         super(numeroINSEE, nom, prenom, adresse, telephone, naissance);
         this.numeroDiplome = numeroDiplome;
     }
 
+   
     /**
      * Si ce moniteur n'a pas d'embauche, ou si sa dernière embauche est terminée,
      * ce moniteur n'a pas d'employeur.
@@ -23,7 +26,12 @@ public class Moniteur extends Personne {
      */
     public Optional<Club> employeurActuel() {
          // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+          Club employeur = null;
+        for(Embauche e:embauche){
+            if (embauche.get(embauche.size()-1).estTerminee() == false){
+                employeur = embauche.get(embauche.size()-1).getEmployeur();
+            }
+        } return Optional.ofNullable(employeur);
     }
     
     /**
@@ -33,12 +41,17 @@ public class Moniteur extends Personne {
      */
     public void nouvelleEmbauche(Club employeur, LocalDate debutNouvelle) {   
          // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");	    
+        Embauche e = new Embauche(debutNouvelle,this,employeur);
+         embauche.add(e);
     }
 
+     public void terminerEmbauche(LocalDate fin){
+        Embauche e = embauche.get(embauche.size()-1);
+        e.terminer(fin);
+    }
+    
     public List<Embauche> emplois() {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        return embauche;
     }
 
 }

@@ -35,7 +35,7 @@ public class Embauche {
      */
     public void terminer(LocalDate dateFin) {
          // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");	    
+       	 fin= dateFin;   
     }
     
     /**
@@ -88,6 +88,12 @@ public class Embauche {
      */
     public LocalDate getDebut() {
         return debut;
+    }
+
+    
+@Override
+    public String toString() {
+        return "Embauche{" + "debut=" + debut + ", fin=" + fin + ", employe=" + employe + ", employeur=" + employeur + '}';
     }
 
     
