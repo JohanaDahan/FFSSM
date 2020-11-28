@@ -25,6 +25,10 @@ public class Club {
         this.telephone = telephone;
     }
 
+    Club(Moniteur organisateur, String club_de_Marseille_de_SSM, String string, String _Rue_de_la_plongée) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * Calcule l'ensemble des plongées non conformes organisées par ce club. Une
      * plongée est conforme si tous les plongeurs de la palanquée ont une

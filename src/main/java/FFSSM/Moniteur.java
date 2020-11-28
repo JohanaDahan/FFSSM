@@ -19,14 +19,16 @@ public class Moniteur extends Personne {
     }
 
    
+
+    
+
     /**
      * Si ce moniteur n'a pas d'embauche, ou si sa dernière embauche est terminée,
      * ce moniteur n'a pas d'employeur.
      * @return l'employeur actuel de ce moniteur sous la forme d'un Optional
      */
     public Optional<Club> employeurActuel() {
-         // TODO: Implémenter cette méthode
-          Club employeur = null;
+        Club employeur = null;
         for(Embauche e:embauche){
             if (embauche.get(embauche.size()-1).estTerminee() == false){
                 employeur = embauche.get(embauche.size()-1).getEmployeur();
@@ -40,12 +42,11 @@ public class Moniteur extends Personne {
      * @param debutNouvelle la date de début de l'embauche
      */
     public void nouvelleEmbauche(Club employeur, LocalDate debutNouvelle) {   
-         // TODO: Implémenter cette méthode
-        Embauche e = new Embauche(debutNouvelle,this,employeur);
+         Embauche e = new Embauche(debutNouvelle,this,employeur);
          embauche.add(e);
     }
-
-     public void terminerEmbauche(LocalDate fin){
+    
+    public void terminerEmbauche(LocalDate fin){
         Embauche e = embauche.get(embauche.size()-1);
         e.terminer(fin);
     }

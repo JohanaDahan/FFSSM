@@ -17,6 +17,8 @@ public class Licence {
 
     public Club club;
 
+    public boolean validité;
+    
     public Licence(Personne possesseur, String numero, LocalDate delivrance, int niveau, Club club) {
         this.possesseur = possesseur;
         this.numero = numero;
@@ -74,13 +76,12 @@ public class Licence {
      * @return vrai si valide à la date d
      **/
         public boolean estValide(LocalDate d) {
-        int a = delivrance.plusYears(1).compareTo(d);
-        int b = delivrance.compareTo(d);
-        if (a > 0 && b > 0) {
-            return true;
-        } else {
-            return false;
+         if (this.delivrance.plusYears(1).compareTo(d)>=0){
+             validité = true;
+         }else{
+             validité = false;
+         }
+         return validité;
         }
-    }
-
-}
+ }
+        
