@@ -25,10 +25,27 @@ public class Club {
         this.telephone = telephone;
     }
 
-    Club(Moniteur organisateur, String club_de_Marseille_de_SSM, String string, String _Rue_de_la_plongée) {
+    Club(Moniteur organisateur, String club_de_plongée, String string, String _rue_drerm) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public Club(Moniteur president, String nom, String adresse, String telephone, TreeSet<Plongee> lesPlongées) {
+        this.president = president;
+        this.nom = nom;
+        this.adresse = adresse;
+        this.telephone = telephone;
+        this.lesPlongées = lesPlongées;
+    }
+
+    public TreeSet<Plongee> getLesPlongées() {
+        return lesPlongées;
+    }
+
+    public void setLesPlongées(TreeSet<Plongee> lesPlongées) {
+        this.lesPlongées = lesPlongées;
+    }
+
+    
     /**
      * Calcule l'ensemble des plongées non conformes organisées par ce club. Une
      * plongée est conforme si tous les plongeurs de la palanquée ont une
