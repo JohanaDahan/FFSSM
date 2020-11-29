@@ -18,10 +18,6 @@ public class Moniteur extends Personne {
         this.numeroDiplome = numeroDiplome;
     }
 
-   
-
-    
-
     /**
      * Si ce moniteur n'a pas d'embauche, ou si sa dernière embauche est terminée,
      * ce moniteur n'a pas d'employeur.

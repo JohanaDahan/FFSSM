@@ -68,16 +68,14 @@ public class TestFFSSM {
     }
     
    
-    
-    
     @Test
-    public void testEstConforme(){
-        untel1.ajouterLicence("003", dateDelivrancePerimee);
-        untel2.ajouterLicence("004",dateDelivranceValable);
-        palanquee.ajouteParticipant(untel2);
-        assertTrue(palanquee.estConforme(),"La palanquée devrait être conforme.");
-        palanquee.ajouteParticipant(untel1);
-        assertFalse(palanquee.estConforme(),"La palanquée ne devrait pas être conforme.");
+    public void testEmployeurActuel(){
+        organisateur.nouvelleEmbauche(club, debutEmbauche);
+        assertTrue(organisateur.employeurActuel().equals(Optional.ofNullable(club)),"Le club devrait être l'employeur.");
+        organisateur.terminerEmbauche(finEmbauche);
+        assertTrue(organisateur.employeurActuel().equals(Optional.empty()),"L'employeur devrait être vide.");
     }
+    
+   
 
 }

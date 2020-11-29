@@ -1,3 +1,4 @@
+  
 /**
  * @(#) LicencePlongeur.java
  */
@@ -16,9 +17,9 @@ public class Licence {
     public int niveau;
 
     public Club club;
-
-    public boolean validité;
     
+    private boolean validité;
+
     public Licence(Personne possesseur, String numero, LocalDate delivrance, int niveau, Club club) {
         this.possesseur = possesseur;
         this.numero = numero;
@@ -47,41 +48,19 @@ public class Licence {
         return club;
     }
 
-    public void setPossesseur(Personne possesseur) {
-        this.possesseur = possesseur;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
-    public void setDelivrance(LocalDate delivrance) {
-        this.delivrance = delivrance;
-    }
-
-    public void setNiveau(int niveau) {
-        this.niveau = niveau;
-    }
-
-    public void setClub(Club club) {
-        this.club = club;
-    }
-    
-    
-
     /**
      * Est-ce que la licence est valide à la date indiquée ?
      * Une licence est valide pendant un an à compter de sa date de délivrance
      * @param d la date à tester
      * @return vrai si valide à la date d
      **/
-        public boolean estValide(LocalDate d) {
+    public boolean estValide(LocalDate d) {
          if (this.delivrance.plusYears(1).compareTo(d)>=0){
              validité = true;
          }else{
              validité = false;
          }
          return validité;
-        }
- }
-        
+    }
+
+}

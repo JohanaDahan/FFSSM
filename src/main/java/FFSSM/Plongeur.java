@@ -43,6 +43,10 @@ public class Plongeur extends Personne{
         this.licence = licence;
     }
     
+    /**
+     *
+     * @return
+     */
     public Licence getDernierelicence(){
         Licence l = licence.get(licence.size()-1);
         return l;
